@@ -14,6 +14,9 @@ namespace ChangeMaker
             ChangeMaker(3.18);
             ChangeMaker(0.99);
             ChangeMaker(12.93);
+            // Test much larger inputs and rounding
+            ChangeMaker(348.382);
+            ChangeMaker(123.456);
             // keep the console open
             Console.ReadKey();
         }
@@ -41,6 +44,42 @@ namespace ChangeMaker
                 // Round the amount to two digits
                 double roundedAmount = Math.Round(amount, 2);
 
+                // Check to see how many hundred dollar bills are in the given amount
+                while (roundedAmount >= 100.00)
+                {
+                    roundedAmount -= 100.00;
+                    hundredDollarCounter++;
+                }
+                // Check to see how many fifty dollar bills are in the given amount
+                while (roundedAmount >= 50.00)
+                {
+                    roundedAmount -= 50.00;
+                    fiftyDollarCounter++;
+                }
+                // Check to see how many twenty dollar bills are in the given amount
+                while (roundedAmount >= 20.00)
+                {
+                    roundedAmount -= 20.00;
+                    twentyDollarCounter++;
+                }
+                // Check to see how many ten dollar bills are in the given amount
+                while (roundedAmount >= 10.00)
+                {
+                    roundedAmount -= 10.00;
+                    tenDollarCounter++;
+                }
+                // Check to see how many five dollar bills are in the given amount
+                while (roundedAmount >= 5.00)
+                {
+                    roundedAmount -= 5.00;
+                    fiveDollarCounter++;
+                }
+                // Check to see how many one dollar bills are in the given amount
+                while (roundedAmount >= 1.00)
+                {
+                    roundedAmount -= 1.00;
+                    oneDollarCounter++;
+                }
                 // Check to see how many quarters are in the given amount
                 while (roundedAmount >= 0.25)
                 {
@@ -62,7 +101,7 @@ namespace ChangeMaker
                     nickelCounter++;
                 }
                 // Check to see how many nickels are in the given amount
-                while (roundedAmount >= 0.01)
+                while (roundedAmount >= 0.0)
                 {
                     roundedAmount -= 0.01;
                     pennyCounter++;
